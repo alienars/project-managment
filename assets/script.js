@@ -36,8 +36,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
         if (dragSrcEl != this) {
-            dragSrcEl.innerHTML = this.innerHTML;
-            this.innerHTML = e.dataTransfer.getData('text/html');
+            // dragSrcEl.innerHTML = this.innerHTML;
+            // this.innerHTML = e.dataTransfer.getData('text/html');
+            var data = e.dataTransfer.getData("text/html");
+
+            // e.target.appendChild(this);
+            // console.log("this.innerHTML : " + data)
+            // document.querySelector('.project-column').appendChild(document.getElementById(data));
+            // console.log("e.dataTransfer.getData('text/html') : " + e.dataTransfer.getData('text/html'));
+
+            var z = document.createElement('div'); // is a node
+            z.classList.add("task");
+            z.innerHTML = data;
+            document.getElementById("progress").appendChild(z);
         }
 
         return false;
@@ -54,7 +65,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
     let items = document.querySelectorAll('.task');
-    items.forEach(function(item) {
+    items.forEach(function (item) {
         item.addEventListener('dragstart', handleDragStart, false);
         item.addEventListener('dragenter', handleDragEnter, false);
         item.addEventListener('dragover', handleDragOver, false);
