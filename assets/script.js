@@ -36,19 +36,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
         if (dragSrcEl != this) {
-            // dragSrcEl.innerHTML = this.innerHTML;
-            // this.innerHTML = e.dataTransfer.getData('text/html');
-            var data = e.dataTransfer.getData("text/html");
 
-            // e.target.appendChild(this);
-            // console.log("this.innerHTML : " + data)
-            // document.querySelector('.project-column').appendChild(document.getElementById(data));
-            // console.log("e.dataTransfer.getData('text/html') : " + e.dataTransfer.getData('text/html'));
+            let columnArr = ['ready','progress','review','done']
+            if (columnArr.indexOf(e.target.parentNode.getAttribute('id')) > -1) {
+                e.target.parentNode.appendChild(dragSrcEl);
+            } else if(columnArr.indexOf(e.target.parentNode.parentNode.getAttribute('id')) > -1) {
+                e.target.parentNode.parentNode.appendChild(dragSrcEl);
+            } else if(columnArr.indexOf(e.target.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
+                e.target.parentNode.parentNode.parentNode.appendChild(dragSrcEl);
+            } else {
 
-            var z = document.createElement('div'); // is a node
-            z.classList.add("task");
-            z.innerHTML = data;
-            document.getElementById("progress").appendChild(z);
+            }
+
         }
 
         return false;
