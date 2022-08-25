@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+// document.addEventListener('DOMContentLoaded', (event) => {
 
     var dragSrcEl = null;
 
@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         e.dataTransfer.effectAllowed = 'move';
         e.dataTransfer.setData('text/html', this.innerHTML);
+
+        document.getElementById('main-trash-btn').style.opacity = "1";
     }
 
     function handleDragOver(e) {
@@ -24,6 +26,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function handleDragEnter(e) {
         this.classList.add('task-hover');
+        // e.target.parentNode.classList.add('task-hover');
+        // let columnArr = ['ready', 'progress', 'review', 'done']
+        // if (columnArr.indexOf(e.target.getAttribute('id')) > -1) {
+        //     e.target.classList.add('task-hover');
+        // } else if (columnArr.indexOf(e.target.parentNode.getAttribute('id')) > -1) {
+        //     e.target.parentNode.classList.add('task-hover');
+        // } else if (columnArr.indexOf(e.target.parentNode.parentNode.getAttribute('id')) > -1) {
+        //     e.target.parentNode.parentNode.classList.add('task-hover');
+        // } else if (columnArr.indexOf(e.target.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
+        //     e.target.parentNode.parentNode.parentNode.classList.add('task-hover');
+        // } else if (columnArr.indexOf(e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
+        //     e.target.parentNode.parentNode.parentNode.parentNode.classList.add('task-hover');
+        // } else {
+
+        // }
     }
 
     function handleDragLeave(e) {
@@ -34,15 +51,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
         if (e.stopPropagation) {
             e.stopPropagation(); // stops the browser from redirecting.
         }
-
+        console.dir(e);
         if (dragSrcEl != this) {
 
-            let columnArr = ['ready','progress','review','done']
+            let columnArr = ['ready', 'progress', 'review', 'done']
             if (columnArr.indexOf(e.target.parentNode.getAttribute('id')) > -1) {
                 e.target.parentNode.appendChild(dragSrcEl);
-            } else if(columnArr.indexOf(e.target.parentNode.parentNode.getAttribute('id')) > -1) {
+            } else if (columnArr.indexOf(e.target.parentNode.parentNode.getAttribute('id')) > -1) {
                 e.target.parentNode.parentNode.appendChild(dragSrcEl);
-            } else if(columnArr.indexOf(e.target.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
+            } else if (columnArr.indexOf(e.target.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
                 e.target.parentNode.parentNode.parentNode.appendChild(dragSrcEl);
             } else {
 
@@ -60,6 +77,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         items.forEach(function (item) {
             item.classList.remove('task-hover');
         });
+
+        document.getElementById('main-trash-btn').style.opacity = "0";
     }
 
 
@@ -72,4 +91,40 @@ document.addEventListener('DOMContentLoaded', (event) => {
         item.addEventListener('drop', handleDrop, false);
         item.addEventListener('dragend', handleDragEnd, false);
     });
-});
+
+
+
+
+    // const alertPlaceholder = document.body
+
+    // const alert = (message, type) => {
+    //     const wrapper = document.createElement('div')
+    //     wrapper.innerHTML = [
+    //         `<div class="alert alert-${type} alert-dismissible" role="alert" style="position: absolute;left: 20px;top: 20px;width: fit-content;">`,
+    //         `   <div>${message}</div>`,
+    //         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    //         '</div>'
+    //     ].join('')
+
+    //     alertPlaceholder.append(wrapper)
+    // }
+
+    // const alertTrigger = document.getElementById('liveAlertBtn')
+    // if (alertTrigger) {
+    //     alertTrigger.addEventListener('click', () => {
+    //         alert('Nice, you triggered this alert message!', 'success')
+    //     })
+    // }
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        // var data = ev.dataTransfer.getData("text/html");
+        // console.dir(dragSrcEl)
+        dragSrcEl.remove();
+        // ev.target.appendChild(document.getElementById(data));
+    }
+// });
+
