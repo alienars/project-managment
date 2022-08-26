@@ -11,6 +11,7 @@ function handleDragStart(e) {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
 
+    document.getElementById('main-trash-btn').style.display = "inherit";
     document.getElementById('main-trash-btn').style.opacity = "1";
 }
 
@@ -60,7 +61,7 @@ function handleDragLeave(e) {
 //     return plustask;
 // }
 
-function bubblingFinder(e){
+function bubblingFinder(e) {
     for (var i = 0; i < (e.path.length); i++) {
         let targetEl = e.path[i]
         if (targetEl.classList.contains('project-column')) {
@@ -74,7 +75,7 @@ function handleDrop(e) {
     // if (e.stopPropagation) {
     //     e.stopPropagation(); // stops the browser from redirecting.
     // }
-    
+
     if (dragSrcEl != this) {
         // for (var i = 0; i < (e.path.length); i++) {
         //     let targetEl = e.path[i]
@@ -115,6 +116,12 @@ function handleDrop(e) {
     return false;
 }
 
+function mainTrashBtnHide() {
+    document.getElementById('main-trash-btn').style.display = "none"
+}
+function mainTrashBtnShow() {
+    document.getElementById('main-trash-btn').style.display = "inherit"
+}
 function handleDragEnd(e) {
     this.style.opacity = '1';
     this.style.border = 0;
@@ -123,7 +130,9 @@ function handleDragEnd(e) {
         item.classList.remove('task-hover');
     });
 
+
     document.getElementById('main-trash-btn').style.opacity = "0";
+    setTimeout(mainTrashBtnHide, 300)
 }
 
 
@@ -187,3 +196,44 @@ function plusDrop(ev) {
 }
 // });
 
+let menuBtnVar = false;
+
+function menuBtn() {
+    if (menuBtnVar) {
+        document.querySelector('.left-side').style.width = "270px"
+        menuBtnVar = false;
+    } else {
+        document.querySelector('.left-side').style.width = "53px"
+        menuBtnVar = true;
+    }
+
+}
+
+
+
+// #todo menu script ------------------------------------------------------------------------------------
+
+
+
+const toggleButton = document.querySelector('.dark-light');
+
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
+const allVideos = document.querySelectorAll('.video');
+
+allVideos.forEach(v => {
+    v.addEventListener('mouseover', () => {
+        const video = v.querySelector('video');
+        video.play();
+    });
+
+    v.addEventListener('mouseleave', () => {
+        const video = v.querySelector('video');
+        video.pause();
+    });
+});
+
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
