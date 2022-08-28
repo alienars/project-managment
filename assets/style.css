@@ -284,6 +284,9 @@ h1 {
     width: 100%;
     color: var(--light-grey);
     font-size: 12px;
+    /* #todo for farsi */
+    direction: rtl;
+    text-align: end;
 }
 
 .task__stats span:not(:last-of-type) {
@@ -292,13 +295,18 @@ h1 {
 
 .task__stats svg {
     margin-right: 5px;
+    margin-left: 5px;
 }
 
 .task__owner {
     width: 25px;
     height: 25px;
     border-radius: 20px;
-    background: var(--purple);
+    /* background: var(--purple); */
+    background-image: url("https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+    background-repeat: no-repeat;
+    background-size: 37px;
+    background-position: center;
     position: absolute;
     display: inline-block;
     right: 0;
@@ -309,12 +317,16 @@ h1 {
     width: 25px;
     height: 25px;
     border-radius: 20px;
-    background: var(--purple);
+    /* background: var(--purple); */
+    background-image: url("https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
     position: absolute;
     display: inline-block;
     right: 0;
     bottom: 0;
     border: 2px solid #fff;
+    background-repeat: no-repeat;
+  background-size: 33px;
+  background-position: center;
 }
 
 .task__ownerss {
@@ -328,12 +340,13 @@ h1 {
     right: 0;
     bottom: 0;
     border: 2px solid #fff;
-    padding: 2px;
+    padding: 1.5px;
+    text-align: center;
 }
 
 .task__ownerss:after {
     content: "+2";
-    font-size: 12px;
+    font-size: 11px;
     color: #fff;
 
 }

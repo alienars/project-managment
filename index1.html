@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/fontawesome/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <style>
-        
+
     </style>
 </head>
 
@@ -89,7 +89,9 @@
                                     class="fa-duotone fa-circle-half-stroke" style="margin-right: 13px;"></i>Dark
                                 Mode</a>
                         </li>
-                        <li><a class="dropdown-item" href="#" style="padding-top: 8px;padding-bottom: 8px;"><i class="fa-duotone fa-arrow-right-from-bracket" style="margin-right: 13px;"></i>Logout</a>
+                        <li><a class="dropdown-item" href="#" style="padding-top: 8px;padding-bottom: 8px;"><i
+                                    class="fa-duotone fa-arrow-right-from-bracket"
+                                    style="margin-right: 13px;"></i>Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -358,14 +360,83 @@
                                         <div class='task__tags dropdown-center'>
                                             <span class='task__tag task__tag--copyright'>Copywriting</span>
                                             <button type="button" class='task__options' data-bs-toggle="dropdown"
-                                                aria-expanded="false">
+                                                aria-expanded="false" data-bs-auto-close="false">
                                                 <i class="fa-solid fa-caret-down"></i>
                                             </button>
-                                            <ul class="dropdown-menu" style="min-width: 50px;">
-                                                <li><a class="dropdown-item" href="#"><i class="fas fa-edit"
-                                                            style="margin-right: 10px;"></i>Edit</a></li>
-                                                <li><a class="dropdown-item" href="#"><i class="fas fa-trash-can"
-                                                            style="margin-right: 10px;"></i>Delete</a></li>
+
+                                            <ul class="dropdown-menu" style="font-size: 15px;">
+                                                <li><a class="dropdown-item" href="#"
+                                                        style="padding-top: 8px;padding-bottom: 8px;"><i
+                                                            class="fa-duotone fa-expand"
+                                                            style="margin-right: 13px;"></i>Open</a></li>
+                                                <li class="dropend">
+                                                    <button type="button" class="dropdown-item"
+                                                        style="padding-top: 8px;padding-bottom: 8px;"
+                                                        data-bs-toggle="dropdown" aria-expanded="false"
+                                                        data-bs-auto-close="false"><i class="fa-duotone fa-user-pen"
+                                                            style="margin-right: 9px;"></i>Assign To -></button>
+                                                    <ul class="dropdown-menu"
+                                                        style="transform: translate3d(155px, 46px, 0px) !important;width: 220px;">
+                                                        <!-- <div>
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                            <img class="user-profile" style="    width: 25px;
+                                                            height: 25px;
+                                                            border-radius: 20px;
+                                                            -o-object-fit: cover;
+                                                            object-fit: cover;
+                                                            margin-right: 10px;"
+                                                            src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                            alt="">Open
+                                                        </div> -->
+                                                        <li><a class="dropdown-item" href="#" style="padding-top: 8px;padding-bottom: 8px;overflow: hidden;
+                                                                text-overflow: ellipsis;">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    id="inlineCheckbox1" value="option1">
+                                                                <img class="user-profile" style="    width: 25px;
+                                                            height: 25px;
+                                                            border-radius: 20px;
+                                                            -o-object-fit: cover;
+                                                            object-fit: cover;
+                                                            margin-right: 10px;margin-left: 10px;"
+                                                                    src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                                    alt="">aman doroosa</a></li>
+                                                        <li><a class="dropdown-item" href="#"
+                                                                style="padding-top: 8px;padding-bottom: 8px;">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    id="inlineCheckbox1" value="option1">
+                                                                <img class="user-profile" style="    width: 25px;
+                                                                height: 25px;
+                                                                border-radius: 20px;
+                                                                -o-object-fit: cover;
+                                                                object-fit: cover;
+                                                                margin-right: 10px;margin-left: 10px;"
+                                                                    src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                                    alt="">berry close</a></li>
+                                                        <li><a class="dropdown-item" href="#"
+                                                                style="padding-top: 8px;padding-bottom: 8px;">
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    id="inlineCheckbox1" value="option1">
+                                                                <img class="user-profile" style="    width: 25px;
+                                                                    height: 25px;
+                                                                    border-radius: 20px;
+                                                                    -o-object-fit: cover;
+                                                                    object-fit: cover;
+                                                                    margin-right: 10px;margin-left: 10px;"
+                                                                    src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                                    alt="">modi petrosa</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        style="padding-top: 8px;padding-bottom: 8px;"><i
+                                                            class="fa-duotone fa-circle-half-stroke"
+                                                            style="margin-right: 13px;"></i>Dark
+                                                        Mode</a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#"
+                                                        style="padding-top: 8px;padding-bottom: 8px;"><i
+                                                            class="fa-duotone fa-arrow-right-from-bracket"
+                                                            style="margin-right: 13px;"></i>Logout</a>
+                                                </li>
                                             </ul>
                                         </div>
                                         <p>Konsep hero title yang menarik<br><span>Konsep hero title yang menarik</span>
@@ -391,6 +462,10 @@
                                             <span><i class="fas fa-paperclip"></i>7</span>
                                             <span class='task__owners'></span>
                                             <span class='task__ownerss'></span>
+                                            <!-- <div>
+                                                <span class='task__owners'></span>
+                                                <span class='task__ownerss'></span>
+                                            </div> -->
                                         </div>
                                     </div>
 
