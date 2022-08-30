@@ -312,8 +312,73 @@
     <script src="assets/fontawesome/all.min.js"></script>
     <script src="assets/jquery-3.6.0.min.js"></script>
     <script src="assets/bootstrap.bundle.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/superagent"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=WeakRef,BigInt"></script> -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="assets/script.js"></script>
 
+
+
+
+    <script type="text/javascript">
+
+
+        // (function () {
+        //     superagent
+        //         .post('https://reqres.in/api/register')
+        //         .send({ 'email': 'eve.holt@reqres.in', 'password': 'pistol' }) // sends a JSON post body
+        //         .set('X-API-Key', 'foobar')
+        //         .set('accept', 'json')
+        //         .end(function (err, res) {
+        //             // Calling the end function will send the request
+        //             if(res){
+        //                 console.log(JSON.parse(res.text));
+        //             }else{
+        //                 console.log(err);
+        //             }
+        //         });
+        // })();
+
+
+        let userId = 8;
+        axios.get('https://reqres.in/api/users', {
+            params: {
+                page: 2
+            }
+        })
+            .then(function (response) {
+                console.log(response.data.data);
+                for (let i = 0; i < response.data.data.length; i++) {
+                    if (response.data.data[i].id == userId) {
+                        console.log("user email : " + response.data.data[i].email)
+                        break;
+                    }
+                    if (response.data.data[i].id !== userId && i == response.data.data.length - 1) {
+                        console.log("user not found")
+                    }
+                }
+            })
+            .catch(function (error) {
+                console.log("error : " + error);
+            })
+            .then(function () {
+                // always executed
+            });
+
+        // axios.post('https://reqres.in/api/register', {
+        //     "email": "eve.holt@reqres.in",
+        //     "password": "pistol"
+        // })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+    </script>
 </body>
 
 </html>
