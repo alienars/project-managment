@@ -325,8 +325,8 @@ h1 {
     bottom: 0;
     border: 2px solid #fff;
     background-repeat: no-repeat;
-  background-size: 33px;
-  background-position: center;
+    background-size: 33px;
+    background-position: center;
 }
 
 .task__ownerss {
@@ -492,7 +492,6 @@ h1 {
 
     .project-column:nth-child(2),
     .project-column:nth-child(3) {
-        display: none;
     }
 
     .project-tasks {
@@ -502,7 +501,6 @@ h1 {
 
 @media only screen and (max-width: 600px) {
     .project-column:nth-child(4) {
-        display: none;
     }
 
     .project-tasks {
@@ -1323,11 +1321,9 @@ body {
 
 @media (max-width: 750px) {
     .left-side {
-        display: none;
     }
 
     .header-menu {
-        display: none;
     }
 
     .search-bar input {
