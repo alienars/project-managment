@@ -10,7 +10,279 @@
     <link rel="stylesheet" href="assets/fontawesome/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <style>
+        .title {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 40px;
+            font-weight: 300;
+            color: #636983;
+        }
 
+        .wrapper {
+            background-color: #F6F8FF;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .wrapper .line {
+            width: 50%;
+            margin: 50px auto 0 auto;
+            height: 1px;
+            background-color: #c3d2e3;
+        }
+
+        h2.tab-title {
+            font-weight: 300;
+        }
+
+        h2.tab-title.tab-primary {
+            color: #636983;
+        }
+
+        h2.tab-title.tab-success {
+            color: #51a14c;
+        }
+
+        h2.tab-title.tab-default {
+            color: #525252;
+        }
+
+        h2.tab-title.tab-warning {
+            color: #b12222;
+        }
+
+        /* .container {
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        } */
+
+        .container .cardd {
+            max-width: 600px;
+            min-height: 140px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid #e3e3e3;
+            margin: 0 auto;
+        }
+
+        .tabs {
+            text-align: left;
+            position: relative;
+        }
+
+        .tabs input {
+            position: absolute;
+            opacity: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tabs input+label {
+            font-weight: 300;
+            color: #666;
+            margin: 10px 0;
+            width: 110px;
+            cursor: pointer;
+            display: inline-block;
+            transition: all 0.3s;
+            text-align: center;
+            font-size: 12px;
+            border: none;
+        }
+
+        .tabs input+label:hover {
+            color: #777;
+        }
+
+        .tabs .tabsShadow {
+            width: 100%;
+            padding: 10px;
+            /* box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.04); */
+            box-sizing: border-box;
+            position: absolute;
+            height: 35px;
+            z-index: 0;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .content {
+            margin: 0px auto;
+            text-align: left;
+            color: #666;
+            font-size: 13px;
+            line-height: 20px;
+            position: relative;
+            height: 220px;
+        }
+
+        .content .item {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            position: absolute;
+            padding: 10px 20px;
+        }
+
+        .content p {
+            margin: 10px 0;
+        }
+
+        .glider {
+            width: 110px;
+            height: 3px;
+            background: linear-gradient(90deg, #5b3cc4 0%, #3c6cc4 100%);
+            border-radius: 3px;
+            position: absolute;
+            box-shadow: 0px 0px 8px 0px rgba(91, 60, 196, 0.4);
+            transition: all 0.3s;
+        }
+
+        #tab-1:checked~.glider {
+            left: 0px;
+        }
+
+        #tab-2:checked+label {
+            color: #51a14c;
+        }
+
+        #tab-2:checked~.glider {
+            background: linear-gradient(90deg, #51a14c 0%, #10c33e 100%);
+            box-shadow: 0px 0px 8px 0px rgba(47, 187, 12, 0.62);
+        }
+
+        #tab-2:checked~.glider {
+            left: 113px;
+        }
+
+        #tab-3:checked+label {
+            color: #525252;
+        }
+
+        #tab-3:checked~.glider {
+            background: linear-gradient(90deg, #4a4a4a 0%, #9b9b9b 100%);
+        }
+
+        #tab-3:checked~.glider {
+            left: 226px;
+        }
+
+        #tab-4:checked+label {
+            color: #b12222;
+        }
+
+        #tab-4:checked~.glider {
+            background: linear-gradient(90deg, #b93232 0%, #ff5d5d 100%);
+            box-shadow: 0px 0px 8px 0px rgba(231, 13, 93, 0.57);
+        }
+
+        #tab-4:checked~.glider {
+            left: 339px;
+        }
+
+        #tab-1:checked~section #content-1,
+        #tab-2:checked~section #content-2,
+        #tab-3:checked~section #content-3,
+        #tab-4:checked~section #content-4 {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 700px) {
+
+            .tabs input+label,
+            .glider {
+                width: 70px;
+            }
+
+            #tab-1:checked~.glider {
+                left: 0px;
+            }
+
+            #tab-2:checked~.glider {
+                left: 73px;
+            }
+
+            #tab-3:checked~.glider {
+                left: 146px;
+            }
+
+            #tab-4:checked~.glider {
+                left: 219px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+        /* .button--loading .button__text {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .button--loading::after {
+            content: "";
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            margin: auto;
+            border: 4px solid transparent;
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: button-loading-spinner 1s ease infinite;
+        }
+
+        @keyframes button-loading-spinner {
+            from {
+                transform: rotate(0turn);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        } */
+
+
+
+
+
+
+
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #222;
+            background-color: transparent;
+            border-bottom: 3px solid #000;
+            border-radius: 0;
+        }
+
+        .user-img-tabs {
+            border-radius: 10px;
+            width: 30px;
+            height: 30px;
+            /* margin-right: 16px; */
+            -o-object-fit: cover;
+            object-fit: cover;
+            -o-object-position: center;
+            object-position: center;
+            background-color: white;
+            padding: 4.8px;
+            padding-right: 10px;
+            margin-top: 5px;
+            color: #666;
+            transition: 0.2s;
+            /* padding-top: 4.5px; */
+            display: inline !important;
+            /* padding-top: 4.5px; */
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -304,17 +576,249 @@
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <div class="modal-body" style="padding: 20px !important;">
+
+                                <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist"
+                                    style="font-size: 13px;">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-home" type="button" role="tab"
+                                            aria-controls="pills-home" aria-selected="true"><i
+                                                class="fa-regular fa-house"
+                                                style="font-size: 14px;padding-right:5px;"></i>Main</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-profile" type="button" role="tab"
+                                            aria-controls="pills-profile" aria-selected="false"><i
+                                                class="fa-regular fa-paperclip"
+                                                style="font-size: 14px;padding-right:5px;"></i>Attachments</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-contact" type="button" role="tab"
+                                            aria-controls="pills-contact" aria-selected="false"><i
+                                                class="fa-regular fa-gear"
+                                                style="font-size: 14px;padding-right:5px;"></i>Settings</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-disabled" type="button" role="tab"
+                                            aria-controls="pills-disabled" aria-selected="false" disabled><i
+                                                class="fa-regular fa-comment"
+                                                style="font-size: 14px;padding-right:5px;"></i>Comments</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                        aria-labelledby="pills-home-tab" tabindex="0">
+                                        <ul style="list-style-type: none;padding-left: 0;padding: 10px;">
+                                            <!-- <div>
+                                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                                            <img class="user-profile" style="    width: 25px;
+                                                            height: 25px;
+                                                            border-radius: 20px;
+                                                            -o-object-fit: cover;
+                                                            object-fit: cover;
+                                                            margin-right: 10px;"
+                                                            src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                            alt="">Open
+                                                        </div> -->
+                                            <li><a class="dropdown-item" href="#" style="padding-top: 8px;padding-bottom: 8px;
+                                                                text-overflow: ellipsis;">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                        value="option1">
+                                                    <img class="user-profile" style="    width: 25px;
+                                                            height: 25px;
+                                                            border-radius: 20px;
+                                                            -o-object-fit: cover;
+                                                            object-fit: cover;
+                                                            margin-right: 10px;margin-left: 10px;"
+                                                        src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                        alt="">aman doroosa</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    style="padding-top: 8px;padding-bottom: 8px;
+                                                    text-overflow: ellipsis;">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                        value="option1">
+                                                    <img class="user-profile" style="    width: 25px;
+                                                                height: 25px;
+                                                                border-radius: 20px;
+                                                                -o-object-fit: cover;
+                                                                object-fit: cover;
+                                                                margin-right: 10px;margin-left: 10px;"
+                                                        src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                        alt="">berry close</a></li>
+                                            <li><a class="dropdown-item" href="#"
+                                                    style="padding-top: 8px;padding-bottom: 8px;
+                                                    text-overflow: ellipsis;">
+                                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                        value="option1">
+                                                    <img class="user-profile" style="    width: 25px;
+                                                                    height: 25px;
+                                                                    border-radius: 20px;
+                                                                    -o-object-fit: cover;
+                                                                    object-fit: cover;
+                                                                    margin-right: 10px;margin-left: 10px;"
+                                                        src="https://images.unsplash.com/photo-1586297098710-0382a496c814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+                                                        alt="">modi petrosa</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                        aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                        aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+                                    <div class="tab-pane fade" id="pills-disabled" role="tabpanel"
+                                        aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer" style="background-color: #F5F4F7;
+                            border-top: 0;">
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" style="border-radius: 50px;border-radius: 50px;
+                            padding: 2px 20px;position: absolute;left: 10px;"><i class="fa-regular fa-trash"
+                                        style="font-size: 14px;padding-right:5px;"></i>Delete</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="border-radius: 50px;border-radius: 50px;
+                                padding: 2px 20px;"><i class="fa-regular fa-xmark"
+                                        style="font-size: 14px;padding-right:5px;"></i>Close</button>
+                                <button type="button" class="btn btn-primary btn-sm btnn" style="border-radius: 50px;border-radius: 50px;
+                                padding: 2px 20px;" id="load1"><i class="fa-regular fa-check"
+                                        style="font-size: 14px;padding-right:5px;"></i>Save</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModal1Label"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModal1Label">Modal title</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
+                            </div> -->
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position: absolute;
+                                    right: 10px;
+                                    top: 10px;
+                                    z-index: 2;"></button> -->
+                            <div class="modal-body" style="padding: 20px !important;">
+
+                                <ul class="nav nav-pills mb-3 nav-fill" id="pills-tab" role="tablist"
+                                    style="font-size: 13px;">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-home" type="button" role="tab"
+                                            aria-controls="pills-home" aria-selected="true"><i
+                                                class="fa-regular fa-house"
+                                                style="font-size: 14px;padding-right:5px;"></i>Main</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-profile" type="button" role="tab"
+                                            aria-controls="pills-profile" aria-selected="false"><i
+                                                class="fa-regular fa-paperclip"
+                                                style="font-size: 14px;padding-right:5px;"></i>Attachments</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-contact" type="button" role="tab"
+                                            aria-controls="pills-contact" aria-selected="false"><i
+                                                class="fa-regular fa-gear"
+                                                style="font-size: 14px;padding-right:5px;"></i>Settings</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-disabled-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-disabled" type="button" role="tab"
+                                            aria-controls="pills-disabled" aria-selected="false" disabled><i
+                                                class="fa-regular fa-comment"
+                                                style="font-size: 14px;padding-right:5px;"></i>Comments</button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                        aria-labelledby="pills-home-tab" tabindex="0">...</div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                        aria-labelledby="pills-profile-tab" tabindex="0">...</div>
+                                    <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                        aria-labelledby="pills-contact-tab" tabindex="0">...</div>
+                                    <div class="tab-pane fade" id="pills-disabled" role="tabpanel"
+                                        aria-labelledby="pills-disabled-tab" tabindex="0">...</div>
+                                </div>
+
+
+                                <!-- <div class="cardd tabs">
+                                    <input id="tab-1" type="radio" class="tab tab-selector" checked="checked"
+                                        name="tab" />
+                                    <label for="tab-1" class="tab tab-primary">Product</label>
+                                    <input id="tab-2" type="radio" class="tab tab-selector" name="tab" />
+                                    <label for="tab-2" class="tab tab-success">Options</label>
+                                    <input id="tab-3" type="radio" class="tab tab-selector" name="tab" />
+                                    <label for="tab-3" class="tab tab-default">Shipping</label>
+                                    <input id="tab-4" type="radio" class="tab tab-selector" name="tab" />
+                                    <label for="tab-4" class="tab tab-warning">Published</label>
+                                    <div class="tabsShadow"></div>
+                                    <div class="glider"></div>
+                                    <section class="content">
+                                        <div class="item" id="content-1">
+                                            <h2 class="tab-title tab-primary">Tab 1</h2>
+                                            <p>
+                                                1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                                fugiat nulla pariatur. Excepteur sint occaecat </p>
+                                        </div>
+                                        <div class="item" id="content-2">
+                                            <h5>Popover in a modal</h5>
+                                            <p>This <a href="#" role="button" class="btn btn-secondary"
+                                                    data-bs-toggle="popover" title="Popover title"
+                                                    data-bs-content="Popover body content is set in this attribute.">button</a>
+                                                triggers a popover on click.</p>
+                                            <hr>
+                                            <h5>Tooltips in a modal</h5>
+                                            <p><a href="#" data-bs-toggle="tooltip" title="Tooltip">This link</a> and <a
+                                                    href="#" data-bs-toggle="tooltip" title="Tooltip">that link</a> have
+                                                tooltips on hover.
+                                            </p>
+                                        </div>
+                                        <div class="item" id="content-3">
+                                            <h2 class="tab-title tab-default">Tab 3</h2>
+                                            <p>
+                                                3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                                laboris nisi ut aliquip ex ea commodo consequat. Duis </p>
+                                        </div>
+                                        <div class="item" id="content-4">
+                                            <h2 class="tab-title tab-warning">Tab 4</h2>
+                                            <p>
+                                                4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                                                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                                                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                                fugiat nulla pariatur.</p>
+                                        </div>
+                                    </section>
+
+                                </div> -->
                             </div>
-                            <div class="modal-body">
-                                ...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                            <div class="modal-footer" style="background-color: #F5F4F7;
+                            border-top: 0;">
+                                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" style="border-radius: 50px;border-radius: 50px;
+                            padding: 2px 20px;position: absolute;left: 10px;"><i class="fa-regular fa-trash"
+                                        style="font-size: 14px;padding-right:5px;"></i>Delete</button>
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="border-radius: 50px;border-radius: 50px;
+                                padding: 2px 20px;"><i class="fa-regular fa-xmark"
+                                        style="font-size: 14px;padding-right:5px;"></i>Close</button>
+                                <button type="button" class="btn btn-primary btn-sm btnn" style="border-radius: 50px;border-radius: 50px;
+                                padding: 2px 20px;" id="load1"><i class="fa-regular fa-check"
+                                        style="font-size: 14px;padding-right:5px;"></i>Save</button>
+
                             </div>
                         </div>
                     </div>
@@ -364,8 +868,12 @@
                                                 <i class="fa-solid fa-caret-down"></i>
                                             </button>
 
+
+
+
                                             <ul class="dropdown-menu" style="font-size: 15px;">
-                                                <li><a class="dropdown-item" href="#"
+                                                <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModal1"
                                                         style="padding-top: 8px;padding-bottom: 8px;"><i
                                                             class="fa-duotone fa-expand"
                                                             style="margin-right: 13px;"></i>Open</a></li>
@@ -721,8 +1229,22 @@
     <script src="assets/fontawesome/all.min.js"></script>
     <script src="assets/jquery-3.6.0.min.js"></script>
     <script src="assets/bootstrap.bundle.min.js"></script>
-    <script src="assets/script.js"></script>
 
+    <!-- <script src="https://codepen.io/rppld/pen/KpbZWY.js"></script>
+    <script src="https://unpkg.com/dynamics.js@1.1.5"></script> -->
+
+    <script src="assets/script.js"></script>
+    <script>
+        // $('#load1').on('click', function () {
+        //     var $this = $(this);
+        //     $this.button('loading');
+        //     setTimeout(function () {
+        //         $this.button('reset');
+        //     }, 1000);
+        // });
+        // btn.classList.add("button--loading");
+        // btn.classList.remove("button--loading");
+    </script>
 </body>
 
 </html>
