@@ -3,16 +3,16 @@
 var dragSrcEl = null;
 
 function handleDragStart(e) {
-    this.style.opacity = '0.1';
-    this.style.border = '3px dashed #c4cad3';
+    this.style.opacity = "0.1";
+    this.style.border = "3px dashed #c4cad3";
 
     dragSrcEl = this;
 
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.innerHTML);
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("text/html", this.innerHTML);
 
-    document.getElementById('main-trash-btn').style.display = "inherit";
-    document.getElementById('main-trash-btn').style.opacity = "1";
+    document.getElementById("main-trash-btn").style.display = "inherit";
+    document.getElementById("main-trash-btn").style.opacity = "1";
 }
 
 function handleDragOver(e) {
@@ -20,14 +20,13 @@ function handleDragOver(e) {
         e.preventDefault();
     }
 
-    e.dataTransfer.dropEffect = 'move';
+    e.dataTransfer.dropEffect = "move";
 
     return false;
 }
 
 function handleDragEnter(e) {
     // this.classList.add('task-hover');
-
     // e.target.parentNode.classList.add('task-hover');
     // let columnArr = ['ready', 'progress', 'review', 'done']
     // if (columnArr.indexOf(e.target.getAttribute('id')) > -1) {
@@ -41,7 +40,6 @@ function handleDragEnter(e) {
     // } else if (columnArr.indexOf(e.target.parentNode.parentNode.parentNode.parentNode.getAttribute('id')) > -1) {
     //     e.target.parentNode.parentNode.parentNode.parentNode.classList.add('task-hover');
     // } else {
-
     // }
 }
 
@@ -62,10 +60,10 @@ function handleDragLeave(e) {
 // }
 
 function bubblingFinder(e) {
-    for (var i = 0; i < (e.path.length); i++) {
-        let targetEl = e.path[i]
-        if (targetEl.classList.contains('project-column')) {
-            targetEl.children[1].appendChild(dragSrcEl)
+    for (var i = 0; i < e.path.length; i++) {
+        let targetEl = e.path[i];
+        if (targetEl.classList.contains("project-column")) {
+            targetEl.children[1].appendChild(dragSrcEl);
             break;
         }
     }
@@ -87,7 +85,7 @@ function handleDrop(e) {
         //         break;
         //     }
         // };
-        bubblingFinder(e)
+        bubblingFinder(e);
         // let columnArr = ['ready', 'progress', 'review', 'done']
         // if (columnArr.indexOf(e.target.parentNode.getAttribute('id')) > -1) {
 
@@ -110,67 +108,59 @@ function handleDrop(e) {
         // } else {
 
         // }
-
     }
 
     return false;
 }
 
 function mainTrashBtnHide() {
-    document.getElementById('main-trash-btn').style.display = "none"
+    document.getElementById("main-trash-btn").style.display = "none";
 }
 function mainTrashBtnShow() {
-    document.getElementById('main-trash-btn').style.display = "inherit"
+    document.getElementById("main-trash-btn").style.display = "inherit";
 }
 function handleDragEnd(e) {
-    this.style.opacity = '1';
+    this.style.opacity = "1";
     this.style.border = 0;
 
     items.forEach(function (item) {
-        item.classList.remove('task-hover');
+        item.classList.remove("task-hover");
     });
 
-
-    document.getElementById('main-trash-btn').style.opacity = "0";
-    setTimeout(mainTrashBtnHide, 300)
+    document.getElementById("main-trash-btn").style.opacity = "0";
+    setTimeout(mainTrashBtnHide, 300);
 }
 
-
-let items = document.querySelectorAll('.task');
+let items = document.querySelectorAll(".task");
 items.forEach(function (item) {
-    item.addEventListener('dragstart', handleDragStart, false);
-    item.addEventListener('dragenter', handleDragEnter, false);
-    item.addEventListener('dragover', handleDragOver, false);
-    item.addEventListener('dragleave', handleDragLeave, false);
-    item.addEventListener('drop', handleDrop, false);
-    item.addEventListener('dragend', handleDragEnd, false);
+    item.addEventListener("dragstart", handleDragStart, false);
+    item.addEventListener("dragenter", handleDragEnter, false);
+    item.addEventListener("dragover", handleDragOver, false);
+    item.addEventListener("dragleave", handleDragLeave, false);
+    item.addEventListener("drop", handleDrop, false);
+    item.addEventListener("dragend", handleDragEnd, false);
 });
 
-
-
-
-
-const alertPlaceholder = document.body
+const alertPlaceholder = document.body;
 
 const alert = (message, type) => {
-    const wrapper = document.createElement('div')
+    const wrapper = document.createElement("div");
     wrapper.innerHTML = [
         `<div class="alert alert-${type} alert-dismissible" role="alert" style="position: absolute;left: 20px;top: 20px;width: fit-content;">`,
         `   <div>${message}</div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-        '</div>'
-    ].join('')
+        "</div>",
+    ].join("");
 
-    alertPlaceholder.append(wrapper)
-}
+    alertPlaceholder.append(wrapper);
+};
 
-const alertTrigger = document.getElementById('liveAlertBtn')
+const alertTrigger = document.getElementById("liveAlertBtn");
 if (alertTrigger) {
-    alertTrigger.addEventListener('click', () => {
-        alert('Nice, you triggered this alert message!', 'success')
-    })
+    alertTrigger.addEventListener("click", () => {
+        alert("Nice, you triggered this alert message!", "success");
+    });
 }
-
 
 function trashAllowDrop(ev) {
     ev.preventDefault();
@@ -189,7 +179,7 @@ function plusAllowDrop(ev) {
 
 function plusDrop(ev) {
     ev.preventDefault();
-    bubblingFinder(ev)
+    bubblingFinder(ev);
     // var data = ev.dataTransfer.getData("text/html");
     // console.dir(dragSrcEl)
     // ev.target.appendChild(document.getElementById(data));
@@ -200,40 +190,61 @@ let menuBtnVar = false;
 
 function menuBtn() {
     if (menuBtnVar) {
-        document.querySelector('.left-side').style.width = "270px"
+        document.querySelector(".left-side").style.width = "270px";
         menuBtnVar = false;
     } else {
-        document.querySelector('.left-side').style.width = "53px"
+        document.querySelector(".left-side").style.width = "53px";
         menuBtnVar = true;
     }
-
 }
-
-
 
 // #todo menu script ------------------------------------------------------------------------------------
 
+const toggleButton = document.querySelector(".dark-light");
 
-
-const toggleButton = document.querySelector('.dark-light');
-
-toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
 });
 
-const allVideos = document.querySelectorAll('.video');
+const allVideos = document.querySelectorAll(".video");
 
-allVideos.forEach(v => {
-    v.addEventListener('mouseover', () => {
-        const video = v.querySelector('video');
+allVideos.forEach((v) => {
+    v.addEventListener("mouseover", () => {
+        const video = v.querySelector("video");
         video.play();
     });
 
-    v.addEventListener('mouseleave', () => {
-        const video = v.querySelector('video');
+    v.addEventListener("mouseleave", () => {
+        const video = v.querySelector("video");
         video.pause();
     });
 });
 
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+const tooltipTriggerList = document.querySelectorAll(
+    '[data-bs-toggle="tooltip"]'
+);
+const tooltipList = [...tooltipTriggerList].map(
+    (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+);
+
+
+let wsSidebarlet = false;
+function wsSidebar() {
+    if (wsSidebarlet) {
+        document.getElementById("ws-sidebar").style.left = "-220px";
+        wsSidebarlet = !wsSidebarlet;
+    } else {
+        document.getElementById("ws-sidebar").style.left = "52px";
+        wsSidebarlet = !wsSidebarlet;
+    }
+}
+let bSidebarlet = false;
+function bSidebar() {
+    if (bSidebarlet) {
+        document.getElementById("b-sidebar").style.left = "-220px";
+        bSidebarlet = !bSidebarlet;
+    } else {
+        document.getElementById("b-sidebar").style.left = "52px";
+        bSidebarlet = !bSidebarlet;
+    }
+}
