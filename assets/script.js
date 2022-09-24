@@ -186,11 +186,11 @@ function plusDrop(ev) {
 }
 // });
 
-let menuBtnVar = false;
+let menuBtnVar = true;
 
 function menuBtn() {
     if (menuBtnVar) {
-        document.querySelector(".left-side").style.width = "270px";
+        document.querySelector(".left-side").style.width = "223px";
         menuBtnVar = false;
     } else {
         document.querySelector(".left-side").style.width = "53px";
@@ -230,12 +230,14 @@ const tooltipList = [...tooltipTriggerList].map(
 
 let wsSidebarlet = false;
 function wsSidebar() {
+    menuBtn();
     if (wsSidebarlet) {
         document.getElementById("ws-sidebar").style.left = "-220px";
         wsSidebarlet = !wsSidebarlet;
     } else {
         document.getElementById("ws-sidebar").style.left = "52px";
         wsSidebarlet = !wsSidebarlet;
+        // menuBtn();
     }
 }
 let bSidebarlet = false;
