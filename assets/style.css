@@ -899,6 +899,8 @@ body {
   color: #666;
   transition: 0.2s;
   padding-top: 4.5px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 .user-img:hover {
@@ -1831,6 +1833,23 @@ h2.tab-title.tab-warning {
   opacity: 0.6;
 }
 
+.req-table-span-x {
+  position: absolute;
+  margin-top: 3px;
+  right: 60px;
+  width: 30px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.req-table-span-s {
+  position: absolute;
+  right: 30px;
+  margin-top: 3px;
+  width: 30px;
+  cursor: pointer;
+}
+
 .modal-footer {
   background-color: #f5f4f7;
   border-top: 0;
@@ -1842,6 +1861,22 @@ h2.tab-title.tab-warning {
   padding: 2px 20px;
   position: absolute;
   left: 10px;
+}
+
+.modal-footer-leftbtn-x {
+  border-radius: 50px;
+  border-radius: 50px;
+  padding: 2px 15px;
+  position: absolute;
+  left: 10px;
+}
+
+.modal-footer-leftbtn-s {
+  border-radius: 50px;
+  border-radius: 50px;
+  padding: 2px 15px;
+  position: absolute;
+  left: 60px;
 }
 
 .modal-footer-rightbtn {
