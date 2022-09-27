@@ -1,20 +1,6 @@
-/* @font-face {
-    font-family: myFirstFont;
-    src: url(webfonts/fa-regular-400.ttf);
-}
-@font-face {
-    font-family: myFirstFont;
-    src: url(webfonts/fa-regular-400.woff2);
-} */
+
 
 .pulse {
-  /* margin:100px;
-    display: block;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #cca92c;
-    cursor: pointer; */
   box-shadow: 0 0 0 rgba(231, 76, 60, 0.5);
   animation: pulse 1s infinite;
 }
@@ -487,10 +473,10 @@ h1 {
 }
 
 @media only screen and (max-width: 1000px) {
-  .project-column:nth-child(2),
+  /* .project-column:nth-child(2),
   .project-column:nth-child(3) {
     display: none;
-  }
+  } */
 
   .project-tasks {
     grid-template-columns: 1fr 1fr;
@@ -498,9 +484,9 @@ h1 {
 }
 
 @media only screen and (max-width: 600px) {
-  .project-column:nth-child(4) {
+  /* .project-column:nth-child(4) {
     display: none;
-  }
+  } */
 
   .project-tasks {
     grid-template-columns: 1fr;
@@ -546,8 +532,8 @@ h1 {
 
 /* #todo menu style ------------------------------------------------------------------------------------ */
 
-@charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap");
+/* @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap"); */
 
 :root {
   --body-font: "Manrope", sans-serif;
@@ -1392,13 +1378,13 @@ body {
 }
 
 @media (max-width: 750px) {
-  .left-side {
+  /* .left-side {
     display: none;
   }
 
   .header-menu {
     display: none;
-  }
+  } */
 
   .search-bar input {
     max-width: 140px;
