@@ -1869,6 +1869,7 @@ h2.tab-title.tab-warning {
   padding: 2px 15px;
   position: absolute;
   left: 10px;
+  width: 45px;
 }
 
 .modal-footer-leftbtn-s {
@@ -1877,6 +1878,7 @@ h2.tab-title.tab-warning {
   padding: 2px 15px;
   position: absolute;
   left: 60px;
+  width: 45px;
 }
 
 .modal-footer-rightbtn {
@@ -1953,6 +1955,12 @@ h2.tab-title.tab-warning {
   margin-top: 3px;
   opacity: 0.6;
   width: 50px;
+}
+
+.req-table-type-icon {
+  right: 40px;
+  margin-top: 3px;
+  opacity: 0.6;
 }
 
 .attach-table-type-i {
