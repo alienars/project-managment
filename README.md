@@ -2,7 +2,7 @@
   <span>Project Managment</span>
   <br>
   <br>
-  <img src="screenshot.png" alt="projectmanagment" width="100">
+  <img src="screenshot.png" alt="projectmanagment" width="100%">
 </h1>
 
 
